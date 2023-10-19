@@ -1,0 +1,51 @@
+{
+    "section1": {
+        "files": [
+            {
+                "url": "assets/images/bird.png",
+                "frameConfig": {
+                    "frameWidth": 215,
+                    "frameHeight": 153,
+                    "startFrame": 0,
+                    "endFrame": -1,
+                    "spacing": 0,
+                    "margin": 0
+                },
+                "type": "spritesheet",
+                "key": "bird"
+            },
+            {
+                "url": "assets/animations/bird.json",
+                "type": "animation",
+                "key": "bird_1"
+            },
+            {
+                "url": "assets/images/circle.png",
+                "type": "image",
+                "key": "circle"
+            },
+            {
+                "url": "assets/images/particles/particle.png",
+                "type": "image",
+                "key": "particle"
+            },
+            {
+                "url": "assets/images/spike.png",
+                "type": "image",
+                "key": "spike"
+            },
+            {
+                "url": "assets/images/wall.png",
+                "type": "image",
+                "key": "wall"
+            }
+        ]
+    },
+    "meta": {
+        "app": "Phaser Editor 2D - Asset Pack Editor",
+        "contentType": "phasereditor2d.pack.core.AssetContentType",
+        "url": "https://phasereditor2d.com",
+        "version": 2,
+        "showAllFilesInBlocks": false
+    }
+}
