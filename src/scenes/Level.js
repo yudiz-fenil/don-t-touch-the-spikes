@@ -51,6 +51,7 @@ class Level extends Phaser.Scene {
 			particleBringToTop: false,
 		})
 		emitter.startFollow(this.bird);
+		this.bird.emitter = emitter;
 	}
 	setScoreUI = () => {
 		const score_bg = this.add.image(this.game.config.width / 2, this.game.config.height / 2, "circle");
@@ -118,7 +119,15 @@ class Level extends Phaser.Scene {
 			localStorage.setItem(gameOptions.bestScoreKey, this.nScore);
 		}
 		this.isGameOver = true;
-		this.scene.restart("Level");
+		this.bird.emitter.remove();
+		this.tweens.add({
+			targets: this.bird,
+			alpha: 0,
+			duration: 500,
+			onComplete: () => {
+				this.scene.restart("Level");
+			}
+		})
 	}
 	updateScore = () => {
 		this.nScore++;
@@ -218,18 +227,18 @@ class Level extends Phaser.Scene {
 		return spike;
 	}
 	setSpikes = (isRight) => {
-		for (var i = 0; i < 11; i++) {
+		for (let i = 0; i < 11; i++) {
 			if (isRight) {
 				this.rightSpikes[i].x = this.game.config.width + gameOptions.triangleBase / 4;
 			}
 			else {
-				this.leftSpikes[i].x = - gameOptions.triangleBase / 4;
+				this.leftSpikes[i].x = -gameOptions.triangleBase / 4;
 			}
 		}
 		const randomPositions = Phaser.Utils.Array.NumberArray(0, 10);
 		const numberOfSpikes = Phaser.Math.Between(3, 6);
-		for (i = 0; i < numberOfSpikes; i++) {
-			var randomSpike = Phaser.Utils.Array.RemoveRandomElement(randomPositions);
+		for (let i = 0; i < numberOfSpikes; i++) {
+			let randomSpike = Phaser.Utils.Array.RemoveRandomElement(randomPositions);
 			if (isRight) {
 				this.rightSpikes[randomSpike].x = this.game.config.width - gameOptions.triangleBase / 2;
 			}
@@ -247,7 +256,7 @@ class Level extends Phaser.Scene {
 		}
 	}
 	update() {
-		this.bird.setAngularVelocity(0);
+		if (!this.isGameOver) this.bird.setAngularVelocity(0);
 	}
 
 	/* END-USER-CODE */
