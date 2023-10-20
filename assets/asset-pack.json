@@ -15,11 +15,6 @@
                 "key": "bird"
             },
             {
-                "url": "assets/animations/bird.json",
-                "type": "animation",
-                "key": "bird_1"
-            },
-            {
                 "url": "assets/images/circle.png",
                 "type": "image",
                 "key": "circle"

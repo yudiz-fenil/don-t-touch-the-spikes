@@ -1,12 +1,6 @@
 {
     "section1": {
-        "files": [
-            {
-                "url": "assets/images/ball.png",
-                "type": "image",
-                "key": "ball"
-            }
-        ]
+        "files": []
     },
     "meta": {
         "app": "Phaser Editor 2D - Asset Pack Editor",
